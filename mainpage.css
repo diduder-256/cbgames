@@ -1,0 +1,179 @@
+body {
+background-color: #03191E;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: monospace;
+color: #7DCE82;
+flex-direction: column;
+text-align: center;
+font-size:  large;
+margin: 0px;
+padding: 0px;
+overflow-x: hidden;
+}
+.title {
+text-align: left;
+line-height: 6px;
+font-size: 6px;
+display: inline-block;
+}
+input {
+font-family: monospace;
+font-size: large;
+background-color: #03191E;
+color: #7DCE82;
+border: 1px solid #7DCE82;
+padding: 8px;
+margin: 10px auto;
+display: block;
+text-align: center;
+}
+
+button {
+font-family: monospace;
+font-size: large;
+background-color: #7DCE82;
+color: #03191E;
+border: none;
+padding: 8px 16px;
+cursor: pointer;
+}
+
+button:hover {
+opacity: 0.85;
+}
+
+.top_box {
+border: 2px solid #7DCE82;
+padding-left: 100%;
+padding-right: 100%;
+position: sticky;
+top: 0;
+background-color: #03191E;
+z-index: 1;
+}
+html {
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+display: none;
+}
+
+.game_button button {
+height: 200px;
+width: 400px;
+border-radius: 6px;
+position: relative;
+overflow: hidden;
+}
+
+.game_button {
+padding: 5px;
+}
+
+.row {
+display: flex;
+flex-direction: row;
+}
+
+.column {
+display: flex;
+flex-direction: column;
+}
+
+.game_embed {
+border: 2px solid #7DCE82;
+width: 50%;
+height: 500px;
+
+}
+.info{
+width: 50%;
+text-align: left;
+}
+.minecraft {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/minecraft_static.jpg");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.minecraft::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/minecraft-hover.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.minecraft:hover::after {
+opacity: 1;
+}
+
+.slope {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/slope.jpg");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.slope::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/slope.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.slope:hover::after {
+opacity: 1;
+}
+
+.polytrack {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/polytrack.jpg");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.polytrack::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/polytrack.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.polytrack:hover::after {
+opacity: 1;
+}

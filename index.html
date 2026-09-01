@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cbgames</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">
+        <span style="font-family: monospace; line-height: 14px; font-size: 14px; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄▄<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄██<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██<br>
+        &nbsp;▄██▀██&nbsp;&nbsp;██▄████▄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄█▀█████▄█▀██▄&nbsp;▀████████▄█████▄&nbsp;&nbsp;&nbsp;▄▄█▀██&nbsp;▄██▀███<br>
+        ██▀&nbsp;&nbsp;██&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;▀██&nbsp;&nbsp;&nbsp;&nbsp;▄██&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;▄█▀&nbsp;&nbsp;&nbsp;████&nbsp;&nbsp;&nbsp;▀▀<br>
+        ██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;▀█████▀&nbsp;&nbsp;▄█████&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;██▀▀▀▀▀▀▀█████▄<br>
+        ██▄&nbsp;&nbsp;&nbsp;&nbsp;▄&nbsp;██▄&nbsp;&nbsp;&nbsp;▄██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;██▄&nbsp;&nbsp;&nbsp;&nbsp;▄█▄&nbsp;&nbsp;&nbsp;██<br>
+        &nbsp;█████▀&nbsp;&nbsp;█▀█████▀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████▀████▀██▄████&nbsp;&nbsp;████&nbsp;&nbsp;████▄&nbsp;▀█████▀██████▀<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█▀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██████▀</span>
+      </h1>
+
+    <div id="login-box">
+      <p>Enter the code to access the website.</p>
+      <input type="text" id="code" placeholder="Enter code" />
+      <button onclick="tryCode()">Enter</button>
+      <p id="status-msg"></p>
+    </div>
+
+    <script>
+      const correctHash = "c244b6b28948b19c2d6afca2fe9ea5b4df21200b7d405790498697cbd4ba54f0";
+
+      async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+      }
+
+      async function tryCode() {
+        const input = document.getElementById("code").value;
+        const inputHash = await sha256(input);
+
+        if (inputHash === correctHash) {
+          window.location.href = "uthinkursneakyhuh.html";
+        } else {
+          const el = document.getElementById("status-msg");
+          el.textContent = "Wrong code.";
+          el.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
