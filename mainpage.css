@@ -285,3 +285,87 @@ transition: opacity 0.3s ease;
 .happywheels:hover::after {
 opacity: 1;
 }
+
+.cclicker {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/cookieclicker.jpg");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.cclicker::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/cookieclicker.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.cclicker:hover::after {
+opacity: 1;
+}
+
+.bpiggies {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/badpiggies.jpg");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.bpiggies::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/badpiggies.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.bpiggies:hover::after {
+opacity: 1;
+}
+
+.ccattle3d {
+width: 200px;
+height: 200px;
+background-image: url("images/game_icons/crazycattle3d.png");
+background-size: cover;
+background-position: center;
+border: none;
+cursor: pointer;
+}
+
+.ccattle3d::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("images/game_icons/crazycattle3d.gif");
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.ccattle3d:hover::after {
+opacity: 1;
+}
