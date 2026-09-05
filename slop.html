@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <title>cbgames</title>
     <link rel="stylesheet" href="mainpage.css" />
+        <script>
+      (function() {
+        const HEARTBEAT_KEY = 'lastHeartbeat';
+        const STALE_MS = 5 * 60 * 1000; // 5 minutes
+
+        const last = parseInt(localStorage.getItem(HEARTBEAT_KEY) || '0', 10);
+        const now = Date.now();
+
+        if (now - last > STALE_MS) {
+          // No tab has been alive recently — wipe any leftover token
+          localStorage.removeItem('token');
+        }
+
+        if (!localStorage.getItem('token')) {
+          window.location.href = '/index.html';
+          return;
+        }
+
+        // Keep checking in while this tab stays open
+        localStorage.setItem(HEARTBEAT_KEY, now);
+        setInterval(() => {
+          localStorage.setItem(HEARTBEAT_KEY, Date.now());
+        }, 1000);
+      })();
+    </script>
   </head>
   <body>
 

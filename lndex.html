@@ -3,46 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>cbgames</title>
-    <link rel="stylesheet" href="mainpage.css" />
-    <script>
-      (function() {
-        const HEARTBEAT_KEY = 'lastHeartbeat';
-        const STALE_MS = 5 * 60 * 1000; // 5 minutes
-
-        const last = parseInt(localStorage.getItem(HEARTBEAT_KEY) || '0', 10);
-        const now = Date.now();
-
-        if (now - last > STALE_MS) {
-          // No tab has been alive recently — wipe any leftover token
-          localStorage.removeItem('token');
-        }
-
-        if (!localStorage.getItem('token')) {
-          window.location.href = '/index.html';
-          return;
-        }
-
-        // Keep checking in while this tab stays open
-        localStorage.setItem(HEARTBEAT_KEY, now);
-        setInterval(() => {
-          localStorage.setItem(HEARTBEAT_KEY, Date.now());
-        }, 1000);
-      })();
-    </script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-
-    <!-- top bar with ascii logo -->
-
-    <div class="top_box">
-      <nav class="nav-links">
-        <a href="uthinkursneakyhuh.html">home</a>
-        <a href="about.html">about</a>
-        <a href="page3.html">hall of fame</a>
-      </nav>
-
       <h1 class="title">
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄▄<br>
+        <span style="font-family: monospace; line-height: 14px; font-size: 14px; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄▄<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄██<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██<br>
         &nbsp;▄██▀██&nbsp;&nbsp;██▄████▄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▄█▀█████▄█▀██▄&nbsp;▀████████▄█████▄&nbsp;&nbsp;&nbsp;▄▄█▀██&nbsp;▄██▀███<br>
@@ -54,21 +19,30 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██████▀</span>
       </h1>
 
-      <div class="spacer"></div>
+    <div id="login-box">
+      <p>Sorry I had to shut down the website because my school asked me to :/</p>
     </div>
 
-    <br>
+      <script>
+        const secretCode = "uthinkursneakyhuh";
+        let typedText = "";
 
-      <iframe class="game_embed" id="game-frame" src="hw.html" allowfullscreen allow="fullscreen, pointerlock">
-      </iframe>
+        document.addEventListener("keydown", function (event) {
+          // Ignore modifier keys such as Shift, Ctrl, and Alt
+          if (event.key.length !== 1) return;
 
-      <a href="hw.html"><button>Fullscreen</button></a>
+          typedText += event.key.toLowerCase();
+          // Keep only the most recent characters
+          if (typedText.length > secretCode.length) {
+            typedText = typedText.slice(-secretCode.length);
+          }
 
-
-    <div class="info">
-      <p>
-        happy wheels is a child friendly parkour game where you can play as different characters<br>
-      </p>
-    <polytrack.html/div>
+          if (typedText === secretCode) {
+            localStorage.setItem('token', 'granted'); // grant access
+            localStorage.setItem('lastHeartbeat', Date.now());
+            window.location.href = "uthinkursneakyhuh.html";
+          }
+        });
+      </script>
   </body>
 </html>
