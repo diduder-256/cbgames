@@ -1,6 +1,3 @@
-:root {
-  --notification-sfx: https://amdroid.xobyte.org/resources/whistle.mp3;
-}
 body {
   color: #FFF;
 }
@@ -8,6 +5,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  height: 250px;
 }
 .allMessages {
  border-radius: 10px;
